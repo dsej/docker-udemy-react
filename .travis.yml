@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+ before_install:
+  - docker build -t dsej/docker-udemy-react -f Dockerfile.dev .
+
+ script:
+  - docker run -e CI=true dsej/docker-udemy-react npm run test 
